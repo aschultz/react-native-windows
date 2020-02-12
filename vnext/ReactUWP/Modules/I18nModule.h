@@ -20,8 +20,18 @@ class I18nModule final : public react::windows::II18nModule {
 
   std::string getLocaleIdentifier() override;
   bool getIsRTL() override;
+  bool getIsRTLAllowed() override;
+  bool getIsRTLForced() override;
+  bool getIsLeftAndRightSwappedInRTL() override;
+
+  void allowRTL(bool allowRTL) override;
+  void forceRTL(bool forceRTL) override;
+  void swapLeftAndRightInRTL(bool flipStyles) override;
 
  private:
+  bool m_isRTLForced;
+  bool m_isRTLAllowed;
+  bool m_swapLeftAndRightInRTL;
   I18nInfo m_i18nInfo;
 };
 } // namespace uwp
